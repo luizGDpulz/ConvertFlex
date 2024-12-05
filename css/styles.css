@@ -135,8 +135,8 @@ body {
 }
 
 .converter-icon img {
-    width: 150px;
-    height: 150px;
+    width: 750px;
+    height: 750px;
     margin-bottom: 1.5rem;
     transition: transform 0.3s ease;
 }
@@ -148,7 +148,7 @@ body {
 .converter-image {
     max-width: 100%;
     height: auto;
-    max-height: 400px;
+    max-height: 500px;
 }
 
 .converter-image:hover {
