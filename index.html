@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConvertFlex - Seu Conversor Universal</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header com navegação de conversores -->
+    <header class="header-nav">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-auto">
+                    <a class="brand" href="#">ConvertFlex</a>
+                </div>
+                <div class="col">
+                    <div class="converter-tabs">
+                        <button class="converter-tab active" data-converter="moedas">
+                            <img src="assets/icons/currency-icon.svg" alt="Moedas" class="tab-icon">
+                            Moedas
+                        </button>
+                        <button class="converter-tab" data-converter="medidas">
+                            <img src="assets/icons/measure-icon.svg" alt="Medidas" class="tab-icon">
+                            Medidas
+                        </button>
+                        <button class="converter-tab" data-converter="temperatura">
+                            <img src="assets/icons/temperature-icon.svg" alt="Temperatura" class="tab-icon">
+                            Temperatura
+                        </button>
+                        <button class="converter-tab" data-converter="tempo">
+                            <img src="assets/icons/time-icon.svg" alt="Tempo" class="tab-icon">
+                            Tempo
+                        </button>
+                        <button class="converter-tab" data-converter="dados">
+                            <img src="assets/icons/data-icon.svg" alt="Dados" class="tab-icon">
+                            Dados
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Área principal de conversão -->
+    <main class="main-content">
+        <div class="container">
+            <div class="converter-panel animate__animated animate__fadeIn">
+                <!-- Conversor de Moedas -->
+                <div class="converter-content active" id="moedas-converter">
+                    <div class="converter-icon">
+                        <img src="assets/images/Currency-bro.svg" alt="Moedas" class="converter-image">
+                    </div>
+                    <div class="converter-box">
+                        <div class="conversion-inputs">
+                            <div class="input-wrapper">
+                                <label>De:</label>
+                                <input type="number" class="form-control" id="valor-moeda" placeholder="0">
+                                <select class="form-select" id="moeda-origem">
+                                    <option value="BRL">Real (BRL)</option>
+                                    <option value="USD">Dólar (USD)</option>
+                                    <option value="EUR">Euro (EUR)</option>
+                                    <option value="GBP">Libra (GBP)</option>
+                                    <option value="JPY">Iene (JPY)</option>
+                                </select>
+                            </div>
+                            <div class="swap-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="input-wrapper">
+                                <label>Para:</label>
+                                <input type="number" class="form-control" id="resultado-moeda" readonly>
+                                <select class="form-select" id="moeda-destino">
+                                    <option value="USD">Dólar (USD)</option>
+                                    <option value="BRL">Real (BRL)</option>
+                                    <option value="EUR">Euro (EUR)</option>
+                                    <option value="GBP">Libra (GBP)</option>
+                                    <option value="JPY">Iene (JPY)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conversor de Medidas -->
+                <div class="converter-content" id="medidas-converter">
+                    <div class="converter-icon">
+                        <img src="assets/images/Mathematics-amico.svg" alt="Medidas" class="converter-image">
+                    </div>
+                    <div class="converter-box">
+                        <select class="form-select measure-type-select" id="tipo-medida">
+                            <option value="comprimento">Comprimento</option>
+                            <option value="peso">Peso</option>
+                            <option value="volume">Volume</option>
+                            <option value="area">Área</option>
+                            <option value="velocidade">Velocidade</option>
+                            <option value="pressao">Pressão</option>
+                        </select>
+                        <div class="conversion-inputs">
+                            <div class="input-wrapper">
+                                <label>De:</label>
+                                <input type="number" class="form-control" id="valor-medida" placeholder="0">
+                                <select class="form-select" id="medida-origem"></select>
+                            </div>
+                            <div class="swap-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="input-wrapper">
+                                <label>Para:</label>
+                                <input type="number" class="form-control" id="resultado-medida" readonly>
+                                <select class="form-select" id="medida-destino"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conversor de Tempo -->
+                <div class="converter-content" id="tempo-converter">
+                    <div class="converter-icon">
+                        <img src="assets/images/Time-rafiki.svg" alt="Tempo" class="converter-image">
+                    </div>
+                    <div class="converter-box">
+                        <div class="conversion-inputs">
+                            <div class="input-wrapper">
+                                <label>De:</label>
+                                <input type="number" class="form-control" id="valor-tempo" placeholder="0">
+                                <select class="form-select" id="tempo-origem">
+                                    <option value="ms">Milissegundos</option>
+                                    <option value="s">Segundos</option>
+                                    <option value="min">Minutos</option>
+                                    <option value="h">Horas</option>
+                                    <option value="d">Dias</option>
+                                    <option value="sem">Semanas</option>
+                                    <option value="mes">Meses</option>
+                                    <option value="ano">Anos</option>
+                                </select>
+                            </div>
+                            <div class="swap-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="input-wrapper">
+                                <label>Para:</label>
+                                <input type="number" class="form-control" id="resultado-tempo" readonly>
+                                <select class="form-select" id="tempo-destino">
+                                    <option value="s">Segundos</option>
+                                    <option value="ms">Milissegundos</option>
+                                    <option value="min">Minutos</option>
+                                    <option value="h">Horas</option>
+                                    <option value="d">Dias</option>
+                                    <option value="sem">Semanas</option>
+                                    <option value="mes">Meses</option>
+                                    <option value="ano">Anos</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conversor de Dados -->
+                <div class="converter-content" id="dados-converter">
+                    <div class="converter-icon">
+                        <img src="assets/images/Server-bro.svg" alt="Dados" class="converter-image">
+                    </div>
+                    <div class="converter-box">
+                        <div class="conversion-inputs">
+                            <div class="input-wrapper">
+                                <label>De:</label>
+                                <input type="number" class="form-control" id="valor-dados" placeholder="0">
+                                <select class="form-select" id="dados-origem">
+                                    <option value="bytes">Bytes</option>
+                                    <option value="kb">Kilobytes</option>
+                                    <option value="mb">Megabytes</option>
+                                    <option value="gb">Gigabytes</option>
+                                    <option value="tb">Terabytes</option>
+                                </select>
+                            </div>
+                            <div class="swap-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="input-wrapper">
+                                <label>Para:</label>
+                                <input type="number" class="form-control" id="resultado-dados" readonly>
+                                <select class="form-select" id="dados-destino">
+                                    <option value="mb">Megabytes</option>
+                                    <option value="bytes">Bytes</option>
+                                    <option value="kb">Kilobytes</option>
+                                    <option value="gb">Gigabytes</option>
+                                    <option value="tb">Terabytes</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conversor de Temperatura -->
+                <div class="converter-content" id="temperatura-converter">
+                    <div class="converter-icon">
+                        <img src="assets/images/Thermometer-amico.svg" alt="Temperatura" class="converter-image">
+                    </div>
+                    <div class="converter-box">
+                        <div class="conversion-inputs">
+                            <div class="input-wrapper">
+                                <label>De:</label>
+                                <input type="number" class="form-control" id="valor-temperatura" placeholder="0">
+                                <select class="form-select" id="temp-origem">
+                                    <option value="celsius">Celsius (°C)</option>
+                                    <option value="fahrenheit">Fahrenheit (°F)</option>
+                                    <option value="kelvin">Kelvin (K)</option>
+                                </select>
+                            </div>
+                            <div class="swap-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="input-wrapper">
+                                <label>Para:</label>
+                                <input type="number" class="form-control" id="resultado-temperatura" readonly>
+                                <select class="form-select" id="temp-destino">
+                                    <option value="fahrenheit">Fahrenheit (°F)</option>
+                                    <option value="celsius">Celsius (°C)</option>
+                                    <option value="kelvin">Kelvin (K)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="credits">
+            <a href="https://storyset.com/education" target="_blank" rel="noopener noreferrer">Education illustrations by Storyset</a>
+            <a href="https://storyset.com/medical" target="_blank" rel="noopener noreferrer">Medical illustrations by Storyset</a>
+            <a href="https://storyset.com/people" target="_blank" rel="noopener noreferrer">People illustrations by Storyset</a>
+            <a href="https://storyset.com/technology" target="_blank" rel="noopener noreferrer">Technology illustrations by Storyset</a>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
